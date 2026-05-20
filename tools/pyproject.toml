@@ -1,0 +1,70 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ccc"
+version = "0.1.0"
+description = "Chaos Commander Cube — toolkit for building, tagging, and analyzing cubes"
+readme = "../README.md"
+requires-python = ">=3.12"
+authors = [
+    { name = "Dain" }
+]
+
+dependencies = [
+    # HTTP client for Scryfall API
+    "httpx>=0.27.0",
+    # Schema validation for the manifest
+    "pydantic>=2.6.0",
+    # Pretty CLI output (progress bars, tables, colored logs)
+    "rich>=13.7.0",
+    # Click for CLI argument parsing
+    "click>=8.1.0",
+]
+
+[project.optional-dependencies]
+analysis = [
+    # For M5 (analysis lab)
+    "matplotlib>=3.8.0",
+    "numpy>=1.26.0",
+    "pandas>=2.2.0",
+]
+images = [
+    # For M2 (image pipeline)
+    "Pillow>=10.2.0",
+    "boto3>=1.34.0",  # R2 is S3-compatible
+]
+dev = [
+    "pytest>=8.0.0",
+    "pytest-cov>=4.1.0",
+    "ruff>=0.3.0",
+    "mypy>=1.9.0",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["ccc*"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = [
+    "E",   # pycodestyle errors
+    "W",   # pycodestyle warnings
+    "F",   # pyflakes
+    "I",   # isort
+    "UP",  # pyupgrade
+    "B",   # flake8-bugbear
+    "SIM", # flake8-simplify
+]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+warn_unused_ignores = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
