@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from ccc.manifest import (
+from mtgccc.manifest import (
     CardEntry,
     CubeManifest,
     load_manifest,

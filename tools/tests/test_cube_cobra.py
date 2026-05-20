@@ -6,7 +6,7 @@ from pathlib import Path
 
 import pytest
 
-from ccc.cube_cobra import deduplicate_names, parse_cube_cobra_txt
+from mtgccc.cube_cobra import deduplicate_names, parse_cube_cobra_txt
 
 
 def test_parses_simple_export(tmp_path: Path) -> None:

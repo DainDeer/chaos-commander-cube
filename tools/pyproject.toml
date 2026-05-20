@@ -3,10 +3,9 @@ requires = ["setuptools>=68", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "ccc"
+name = "mtgccc"
 version = "0.1.0"
-description = "Chaos Commander Cube — toolkit for building, tagging, and analyzing cubes"
-readme = "../README.md"
+description = "MTG Chaos Commander Cube — toolkit for building, tagging, and analyzing cubes"
 requires-python = ">=3.12"
 authors = [
     { name = "Dain" }
@@ -44,7 +43,7 @@ dev = [
 
 [tool.setuptools.packages.find]
 where = ["."]
-include = ["ccc*"]
+include = ["mtgccc*"]
 
 [tool.ruff]
 line-length = 100

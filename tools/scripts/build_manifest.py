@@ -26,15 +26,15 @@ from rich.progress import (
     TimeRemainingColumn,
 )
 
-from ccc.cube_cobra import deduplicate_names, parse_cube_cobra_txt
-from ccc.manifest import (
+from mtgccc.cube_cobra import deduplicate_names, parse_cube_cobra_txt
+from mtgccc.manifest import (
     CardEntry,
     Color,
     CubeManifest,
     make_card_id,
     save_manifest,
 )
-from ccc.scryfall import ScryfallCard, ScryfallClient
+from mtgccc.scryfall import ScryfallCard, ScryfallClient
 
 console = Console()
 
