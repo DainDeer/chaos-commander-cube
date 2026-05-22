@@ -2,12 +2,12 @@
 
 A custom MTG draft format and the toolkit that powers it: huge curated card pools where each draft sees less than 10% of the cards, ensuring wildly varied games. Seed-based draft generation means every draft is reproducible and shareable.
 
-The format is called **Chaos Commander Draft**. The first cube is **Nicol Bolas** — a Grixis (blue/black/red) cube of ~8000 cards. Future cubes will explore other three-color combinations, each curated separately.
+The format is called **Chaos Commander Draft**. The first cube is **Nicol Bolas' Chaos Commander Cube** — a blue/black/red cube of ~8000 cards. Future cubes will cover other three-color combinations, each curated separately.
 
 This repo contains:
 - The toolkit (Python) for building, tagging, and analyzing cubes
 - The Tabletop Simulator mod (Lua) for running drafts and gameplay
-- The data files for each individual cube (currently just Nicol Bolas)
+- The data files for each individual cube (currently just Nicol Bolas')
 
 ---
 
@@ -31,7 +31,7 @@ Format rules, banned list, and community discussion will live at the Discord (TB
 
 ## Project overview
 
-The codebase is **cube-agnostic**. The toolkit and TTS mod load a specific cube as data, so the same code can power Nicol Bolas, Atraxa-themed cubes, or any future three-color cube someone curates.
+The codebase is **cube-agnostic**. The toolkit and TTS mod load a specific cube as data, so the same code can power the Grixis cube, a Jund cube, or any future three-color cube someone curates.
 
 Three main components:
 
@@ -146,14 +146,14 @@ chaos-commander-cube/
 ├── DESIGN_DECISIONS.md                # Detailed reasoning for non-obvious choices
 ├── FORMAT_RULES.md                    # Full rules for Chaos Commander Draft
 ├── cubes/
-│   └── nicol_bolas/
+│   └── grixis/
 │       ├── manifest.json              # Cube data
 │       ├── tag_vocabulary.json        # Cube-specific tag vocab
 │       ├── cube_cobra_export.csv      # Source export (committed for reproducibility)
 │       └── README.md                  # Cube-specific notes (theme, archetypes, etc)
 ├── tools/
 │   ├── pyproject.toml
-│   ├── ccc/
+│   ├── mtgccc/
 │   │   ├── __init__.py
 │   │   ├── rng.py                     # Mulberry32 — reference implementation
 │   │   ├── sampling.py                # A-Res weighted sampling
@@ -241,16 +241,16 @@ Two TTS workshop items:
 
 ## Milestones
 
-Concrete, deliverable-driven. The Nicol Bolas cube is the first (and currently only) cube. Building it out also builds the toolkit and mod that will support future cubes.
+Concrete, deliverable-driven. The Grixis cube is the first (and currently only) cube. Building it out also builds the toolkit and mod that will support future cubes.
 
 ### M1: Manifest builder produces a valid Bolas manifest
 
-- Set up repo, pyproject.toml, project skeleton with `cubes/nicol_bolas/` directory
+- Set up repo, pyproject.toml, project skeleton with `cubes/grixis/` directory
 - Define initial `tag_vocabulary.json` for Bolas
 - Write `scryfall.py` (rate-limited API client)
 - Write `build_manifest.py`: ingest Cube Cobra CSV, enrich with Scryfall, emit JSON (images skipped at first, just URLs)
 - Run on the real 8k Bolas cube, fix issues, commit `manifest.json`
-- **Deliverable:** `cubes/nicol_bolas/manifest.json` exists and validates against schema.
+- **Deliverable:** `cubes/grixis/manifest.json` exists and validates against schema.
 
 ### M2: Image pipeline
 
@@ -264,7 +264,7 @@ Concrete, deliverable-driven. The Nicol Bolas cube is the first (and currently o
 - Write `rng.py` (Mulberry32) and `sampling.py` (A-Res), with unit tests
 - Write `draft.py`: seed + manifest + config → 40 packs of 20
 - Write `draft_sim.py` CLI: generate and print a draft
-- **Deliverable:** `python draft_sim.py --cube nicol_bolas --seed 42` outputs reproducible 40 packs.
+- **Deliverable:** `python draft_sim.py --cube grixis --seed 42` outputs reproducible 40 packs.
 
 ### M4: Tag CLI
 
@@ -354,7 +354,7 @@ Things we've punted on but will need decisions later:
 
 - **Chaos Commander Draft** — the format defined by this project.
 - **Cube** — a curated card pool from which packs are generated for drafting.
-- **Nicol Bolas cube** — the first cube of this format; Grixis (UBR) colored, ~8000 cards.
+- **Grixis cube** — the first cube of this format; Grixis (UBR) colored, ~8000 cards.
 - **Draft** — players take turns picking cards from packs to build their decks.
 - **Pack** — a set of cards (here, 20) from which one card is picked, then the rest are passed.
 - **Pod** — a group of players drafting together (here, 8 per draft).

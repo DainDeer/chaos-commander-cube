@@ -2,9 +2,9 @@
 
 Usage:
     python scripts/build_manifest.py \
-        --cube nicol_bolas \
-        --input ../cubes/nicol_bolas/cube_cobra_export.txt \
-        --output ../cubes/nicol_bolas/manifest.json
+        --cube grixis \
+        --input ../cubes/grixis/cube_cobra_export.txt \
+        --output ../cubes/grixis/manifest.json
 
 The first run will be slow (~13 minutes for 8000 cards at Scryfall's polite
 rate limit). Subsequent runs use a local cache and complete in seconds.

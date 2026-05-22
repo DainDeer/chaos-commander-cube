@@ -68,10 +68,10 @@ class CubeManifest(BaseModel):
     itself (name, version) so seeds can be tied to specific versions.
     """
 
-    # Short cube identifier matching the directory name (e.g., "nicol_bolas").
+    # Short cube identifier matching the directory name (e.g., "grixis").
     cube_id: str
 
-    # Human-readable cube name (e.g., "Nicol Bolas").
+    # Human-readable cube name (e.g., "Grixis").
     name: str
 
     # Three-color identity of the cube (e.g., ["U", "B", "R"] for Grixis/Bolas).
